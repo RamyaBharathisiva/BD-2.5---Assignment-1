@@ -230,7 +230,7 @@ let products = [
   },
 ];
 //function to Get the products sorted by popularity
-function sortPatingsHightoLow(obj1,obj2){
+function sortratingsHightoLow(obj1,obj2){
   return obj2.rating-obj1.rating;
 }
 //Endpoint 1: Get the products sorted by popularity
@@ -290,13 +290,13 @@ app.get('/products/filter/brand',(req,res)=>{
   res.json(productfilter);
 })
 //function to Filter the products based on the “OS” option.
-function filterByOs(product,os){
+function filterByOs(os,product){
   return product.os.toLowerCase()===os.toLowerCase();
 }
 // Endpoint 7: Filter the products based on the “OS” option.
 app.get('/products/filter/os',(req,res)=>{
   let os=req.query.os;
-  let productfilter=products.filter(product=>filterByOs(product,os));
+  let productfilter=products.filter(product=>filterByOs(os,product));
   res.json(productfilter);
 })
 //function to Filter the products based on the “Price” option
